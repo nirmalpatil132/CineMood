@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CineMood — Movie & Series Suggestions</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">Cine<span class="accent">Mood</span></div>
+      <nav class="nav">
+        <!-- Wrapper for nav links for mobile menu functionality -->
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <button id="watchlistBtn" class="btn">Watchlist (0)</button>
+            <button id="themeToggle" class="btn">Dark</button>
+        </div>
+        <!-- Hamburger menu button for mobile -->
+        <button id="menu-toggle" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Find the perfect film for your mood</h1>
+          <p class="lead">
+            Tell us your mood and favorite genre — we'll suggest the best movies
+            & series across OTT platforms.
+          </p>
+          <div class="controls">
+            <input
+              id="moodInput"
+              placeholder="How are you feeling? e.g. adventurous, romantic, thoughtful"
+            />
+            <div class="genres" id="genreChips"></div>
+            <select id="platformSelect">
+              <option value="all">All Platforms</option>
+              <option value="netflix">Netflix</option>
+              <option value="hotstar">JioCinema</option>
+              <option value="prime">Prime Video</option>
+              <option value="youtube">YouTube</option>
+            </select>
+            <div class="controls-row">
+              <button id="searchBtn" class="cta">Suggest</button>
+              <button id="clearBtn" class="ghost">Reset</button>
+            </div>
+            <p class="hint">
+              <!-- Tip: For real-time platform availability, set your TMDB API key inside <code>script.js</code>. -->
+            </p>
+          </div>
+        </div>
+        <div class="hero-right" id="featuredArea"></div>
+        
+      </section>
+
+      <section class="search-section">
+        <h2>Or Search Directly For a Title</h2>
+        <div class="search-bar">
+          <input type="text" id="titleSearchInput" placeholder="Enter movie or series name..." />
+          <button id="titleSearchBtn" class="cta">Search</button>
+        </div>
+      </section>
+
+      <section class="explore" id="explore">
+        <h2>Trending across platforms</h2>
+        <div id="cardsGrid" class="cards-grid"></div>
+      </section>
+
+      <section id="about" class="about">
+        <h2>About CineMood</h2>
+        <p>
+          CineMood helps you discover movies & series from Netflix, Prime Video,
+          JioCinema, YouTube, and more — based on your mood & favorite genres.
+          We offer a futuristic, interactive UI, a personal watchlist saved in
+          your browser, and optional real-time streaming availability. Browse
+          trending titles, explore genres, and jump straight to your favorite
+          platform with one click.
+        </p>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>
+          Email:
+          <a href="mailto:nirmalpatil1324@gmail.com"
+            >nirmalpatil1324@gmail.com</a
+          >
+        </p>
+        <p>
+          Website:
+          <a
+            href="https://nirmalpatil132.github.io/My-Resume-Website/"
+            target="_blank"
+            >My Portfolio</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <div id="watchlistModal" class="modal">
+      <div class="modal-content">
+        <button class="close" id="closeWatchlist">Close</button>
+        <h3>Your Watchlist</h3>
+        <div id="watchlistItems"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      © CineMood • Images from Unsplash • Built with ❤️
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
