@@ -1,5 +1,5 @@
 // CineMood — Real-time TMDB Version
-const TMDB_API_KEY = "35040d62829bedfe15090ba42fa8643a";
+const TMDB_API_KEY = "51bf591a59922b6ce56496a0c32c02fb";
 const platforms = ["netflix", "prime", "jiohotstar", "youtube"];
 const allGenres = {};
 let initialMediaLoad = [];
