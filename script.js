@@ -1,5 +1,5 @@
 // CineMood — Real-time TMDB Version
-const TMDB_API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNWFlYjFkM2UyMjkyZjY3MmY2ZGY1MTg1ZjNhMjIwYyIsIm5iZiI6MTc1NDY2OTk2My4wMDcsInN1YiI6IjY4OTYyMzhiMzAwMzMyMDMxYjU2MWQ2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaWouIjoxfQ.OMGvseZh7CDRV_Ccc5LWyxm__oR6WXthAWgZTUbAhSU";
+const TMDB_API_KEY = "35040d62829bedfe15090ba42fa8643a";
 const platforms = ["netflix", "prime", "jiohotstar", "youtube"];
 const allGenres = {};
 let initialMediaLoad = [];
@@ -26,20 +26,15 @@ let watchlist = JSON.parse(localStorage.getItem("cinemood_watchlist") || "[]");
 // --- API Fetching and Data Processing ---
 
 async function fetchFromTMDB(endpoint) {
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${TMDB_API_KEY}`
-        }
-    };
+    // V3 authentication sends the key as a URL parameter
+    const url = `https://api.themoviedb.org/3/${endpoint}?api_key=${TMDB_API_KEY}`;
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/${endpoint}`, options);
+        const response = await fetch(url);
         if (!response.ok) throw new Error(`API request failed: ${response.statusText}`);
         return response.json();
     } catch (err) {
         console.error('Error fetching from TMDB:', err);
-        cardsGrid.innerHTML = `<p class="lead" style="text-align: center;">Failed to load movie data. Please check your API key or network connection.</p>`;
+        cardsGrid.innerHTML = `<p class="lead" style="text-align: center; grid-column: 1 / -1;">Failed to load movie data. Please check your API key or network connection.</p>`;
         return null;
     }
 }
